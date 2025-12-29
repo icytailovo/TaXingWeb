@@ -1,42 +1,56 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { PodcastFeed, PodcastEpisode } from '@/types/podcast';
-import { Box, Typography, Card, CardContent, CardMedia, List, ListItem, ListItemButton, ListItemText, Divider, Skeleton } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Divider,
+  Skeleton,
+} from '@mui/material';
 import parse from 'html-react-parser';
 import DOMPurify from 'dompurify';
 
 export default function PodcastPlayer() {
-  const [podcastData, setPodcastData] = useState<PodcastFeed | null>(null);
   const [currentEpisode, setCurrentEpisode] = useState<PodcastEpisode | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchPodcastData = async () => {
-      try {
-        const response = await fetch('/api/podcast');
-        if (!response.ok) {
-          throw new Error('Failed to fetch podcast data');
-        }
-        const data = await response.json();
-        setPodcastData(data);
-        // Set the first episode as the current episode by default
-        if (data.episodes && data.episodes.length > 0) {
-          setCurrentEpisode(data.episodes[0]);
-        }
-      } catch (err) {
-        setError('Error loading podcast. Please try again later.');
-        console.error(err);
-      } finally {
-        setLoading(false);
+  // React Query hook with hybrid caching strategy
+  const {
+    data: podcastData,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['podcast'],
+    queryFn: async () => {
+      const response = await fetch('/api/podcast');
+      if (!response.ok) {
+        throw new Error('Failed to fetch podcast data');
       }
-    };
+      return response.json() as Promise<PodcastFeed>;
+    },
+    // Client-side cache settings
+    staleTime: 1800000, // 30 minutes - consider data fresh
+    gcTime: 3600000, // 1 hour - keep in memory
+    retry: 2, // Retry failed requests twice
+    retryDelay: 1000, // Wait 1 second before retry
+  });
 
-    fetchPodcastData();
-  }, []);
+  // Set first episode as current when data loads
+  React.useEffect(() => {
+    if (podcastData?.episodes && podcastData.episodes.length > 0 && !currentEpisode) {
+      setCurrentEpisode(podcastData.episodes[0]);
+    }
+  }, [podcastData, currentEpisode]);
 
   const handleEpisodeSelect = (episode: PodcastEpisode) => {
     setCurrentEpisode(episode);
@@ -53,7 +67,7 @@ export default function PodcastPlayer() {
     });
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <Box sx={{ maxWidth: 800, mx: 'auto', p: 2 }}>
         <Skeleton variant="rectangular" height={300} />
@@ -71,7 +85,7 @@ export default function PodcastPlayer() {
     return (
       <Box sx={{ maxWidth: 800, mx: 'auto', p: 2 }}>
         <Typography variant="h5" color="error">
-          {error}
+          Error loading podcast. Please try again later.
         </Typography>
       </Box>
     );
@@ -80,9 +94,7 @@ export default function PodcastPlayer() {
   if (!podcastData || !currentEpisode) {
     return (
       <Box sx={{ maxWidth: 800, mx: 'auto', p: 2 }}>
-        <Typography variant="h5">
-          No podcast episodes found.
-        </Typography>
+        <Typography variant="h5">No podcast episodes found.</Typography>
       </Box>
     );
   }

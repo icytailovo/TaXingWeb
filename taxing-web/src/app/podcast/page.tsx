@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import Link from 'next/link';
-import PodcastPlayer from '@/components/PodcastPlayer';
+import PodcastPlayer from '@/components/common/PodcastPlayer';
 
 
 export default function PodcastListPage() {

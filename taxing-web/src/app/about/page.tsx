@@ -1,19 +1,22 @@
-import React from 'react';
-import { Button, Typography, Container, Box } from '@mui/material';
+'use client';
 
-const Home: React.FC = () => {
+import React from 'react';
+import { Container } from '@mui/material';
+import { volunteers } from '@/data/volunteers';
+import { aboutPageContent } from '@/data/aboutContent';
+import { AboutPageHeader, HistoryTimeline, VolunteerAccordion } from '@/components/about';
+
+const AboutUs: React.FC = () => {
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Next.js with Material UI
-        </Typography>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
-      </Box>
+    <Container maxWidth="lg" sx={{ py: 8 }}>
+      <AboutPageHeader title={aboutPageContent.pageTitle} />
+      <HistoryTimeline sections={aboutPageContent.sections} />
+      <VolunteerAccordion
+        title={aboutPageContent.volunteerSectionTitle}
+        volunteers={volunteers}
+      />
     </Container>
   );
 };
 
-export default Home;
+export default AboutUs;
