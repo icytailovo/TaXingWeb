@@ -23,6 +23,7 @@ import DOMPurify from 'dompurify';
 
 export default function PodcastPlayer() {
   const [currentEpisode, setCurrentEpisode] = useState<PodcastEpisode | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   // React Query hook with hybrid caching strategy
   const {
@@ -32,7 +33,7 @@ export default function PodcastPlayer() {
   } = useQuery({
     queryKey: ['podcast'],
     queryFn: async () => {
-      const response = await fetch('/api/podcast');
+      const response = await fetch(`${basePath}/podcast.json`);
       if (!response.ok) {
         throw new Error('Failed to fetch podcast data');
       }
@@ -140,8 +141,6 @@ export default function PodcastPlayer() {
           src={currentEpisode.audioUrl}
           showJumpControls={true}
           layout="stacked"
-          customProgressBarSection={['CURRENT_TIME', 'PROGRESS_BAR', 'DURATION']}
-          customControlsSection={['ADDITIONAL_CONTROLS', 'MAIN_CONTROLS', 'VOLUME_CONTROLS']}
           autoPlayAfterSrcChange={false}
         />
       </Card>

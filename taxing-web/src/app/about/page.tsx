@@ -5,12 +5,11 @@ import { Box, Container } from '@mui/material';
 import Image from 'next/image';
 import { volunteers } from '@/data/volunteers';
 import { aboutPageContent } from '@/data/aboutContent';
-import { AboutPageHeader, HistoryTimeline, VolunteerAccordion } from '@/components/about';
+import {HistoryTimeline, VolunteerAccordion } from '@/components/about';
 
 const AboutUs: React.FC = () => {
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
-      {/* <AboutPageHeader title={aboutPageContent.pageTitle} /> */}
       <Box sx={{ my: 6, display: 'flex', justifyContent: 'center' }}>
         <Box
           sx={{

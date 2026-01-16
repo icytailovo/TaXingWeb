@@ -1,3 +1,5 @@
+import { SvgIconComponent } from '@mui/icons-material';
+
 export interface MediaIcon {
   iconSrc: string;
   text: string;
@@ -5,7 +7,7 @@ export interface MediaIcon {
 }
 
 export interface OverviewData {
-  iconSrc: string;
+  iconSrc: SvgIconComponent;
   field: string;
   value: string;
 }
