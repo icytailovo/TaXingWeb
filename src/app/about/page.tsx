@@ -3,6 +3,7 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
 import Image from 'next/image';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 import { volunteers } from '@/data/volunteers';
 import { aboutPageContent } from '@/data/aboutContent';
 import {HistoryTimeline, VolunteerAccordion } from '@/components/about';
@@ -23,7 +24,7 @@ const AboutUs: React.FC = () => {
           }}
         >
           <Image
-            src="/images/她行AboutUS网页插图.png"
+            src={`${basePath}/images/她行AboutUS网页插图.png`}
             alt="关于她行插图"
             fill
             sizes="(max-width: 900px) 100vw, 1024px"

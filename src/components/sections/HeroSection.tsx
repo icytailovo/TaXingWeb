@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import Image from 'next/image';
-const backgroundImgSrc = '/images/taxing-hero-image.png';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const backgroundImgSrc = `${basePath}/images/taxing-hero-image.png`;
 
 const HeroSection = () => (
   <Box

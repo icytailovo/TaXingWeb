@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import TextDivider from '@/components/common/TextDivider';
-const aboutImage = '/images/taxing-about.png';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const aboutImage = `${basePath}/images/taxing-about.png`;
 
 const AboutSection = () => (
   <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 4 }}>
@@ -16,7 +17,7 @@ const AboutSection = () => (
       </Typography>
     </Box>
     <Box>
-      <Image src={aboutImage} alt="About" style={{ borderRadius: '5%' }} />
+      <Image src={aboutImage} alt="About" width={520} height={520} style={{ borderRadius: '5%' }} />
     </Box>
   </Box>
 );

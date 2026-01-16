@@ -6,7 +6,7 @@ export interface NavigationItem {
 export const pagesItems: NavigationItem[] = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
-  { name: 'Past Programs', path: '/past-programs' },
+  // { name: 'Past Programs', path: '/past-programs' },
   { name: 'Podcast', path: '/podcast' },
   // { name: 'Join Us', path: '/join' },
 ];

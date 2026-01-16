@@ -5,11 +5,12 @@ import TextDivider from '@/components/common/TextDivider';
 import { MediaIcon } from '@/types/home';
 
 // Media icons data
-const wechatLogo = '/icons/微信logo.svg';
-const littleRedBookLogo = '/icons/小红书logo.svg';
-const linkedinLogo = '/icons/linkedin.svg';
-const xiaoYuZhouLogo = '/icons/小宇宙.svg';
-const spotifyLogo = '/icons/spotify.svg';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const wechatLogo = `${basePath}/icons/微信logo.svg`;
+const littleRedBookLogo = `${basePath}/icons/小红书logo.svg`;
+const linkedinLogo = `${basePath}/icons/linkedin.svg`;
+const xiaoYuZhouLogo = `${basePath}/icons/小宇宙.svg`;
+const spotifyLogo = `${basePath}/icons/spotify.svg`;
 
 const mediaIcons: MediaIcon[] = [
   { iconSrc: wechatLogo, text: '她行Mentorship', redirectUrl: 'https://mp.weixin.qq.com/s/j6mqJA1TKbIYU8grMWL4fQ' },

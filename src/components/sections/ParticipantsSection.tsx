@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-const map = '/images/map.jpg';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const map = `${basePath}/images/map.jpg`;
 
 const ParticipantsSection = () => (
   <>
