@@ -4,7 +4,6 @@ export interface AboutSection {
 }
 
 export interface AboutPageContent {
-  pageTitle: string;
   sections: AboutSection[];
   volunteerSectionTitle: string;
 }

@@ -3,7 +3,7 @@ import { Box, Typography, Card, CardContent } from '@mui/material';
 import TextDivider from '@/components/common/TextDivider';
 import Image from 'next/image';
 import HrTeamIcon from '@/../public/icons/她行人事组.png';
-import OperationsTeamIcon from '@/../public/icons/运营组 logo_透明底.png';
+import OperationsTeamIcon from '@/../public/icons/运营组 logo_增强对比度版.png';
 import ProjectTeamIcon from '@/../public/icons/优先_项目组logo_去除背景.png';
 import StrategyTeamIcon from '@/../public/icons/WechatIMG246.jpg';
 
@@ -14,7 +14,7 @@ const volunteerGroups = [
     description: '负责她行的策划与管理工作',
   },
   {
-    icon: <Image src={HrTeamIcon} alt="Forward With Her" width={80} height={80} />,
+    icon: <Image src={HrTeamIcon} alt="Forward With Her" width={110} height={110} />,
     title: '人事组',
     description: '负责与活动参与者Mentor和Mentee们进行对接',
   },
@@ -24,7 +24,7 @@ const volunteerGroups = [
     description: '负责她行的对外宣传工作',
   },
   {
-    icon: <Image src={ProjectTeamIcon} alt="Forward With Her" width={80} height={80} />,
+    icon: <Image src={ProjectTeamIcon} alt="Forward With Her" width={110} height={110} />,
     title: '项目组',
     description: '负责策划与组织她行中的圆桌讨论及分享交流活动，促进成员间的经验分享与深入交流',
   },

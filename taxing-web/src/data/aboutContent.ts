@@ -1,7 +1,6 @@
 import { AboutPageContent } from '@/types/aboutContent';
 
 export const aboutPageContent: AboutPageContent = {
-  pageTitle: "About Us",
   sections: [
     {
       title: "【萌芽/2020】",

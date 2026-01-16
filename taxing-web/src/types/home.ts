@@ -1,17 +1,17 @@
 export interface MediaIcon {
-  iconSrc: object;
+  iconSrc: string;
   text: string;
   redirectUrl: string;
 }
 
 export interface OverviewData {
-  iconSrc: object;
+  iconSrc: string;
   field: string;
   value: string;
 }
 
 export interface PastProgramCardData {
-  imageSrc: object;
+  imageSrc: string;
   title: string;
-  text: string;
+  url: string;
 }

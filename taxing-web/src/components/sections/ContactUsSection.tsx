@@ -1,11 +1,7 @@
 import React from 'react';
-import { Box, Typography, Link, SvgIcon } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
-import Image from 'next/image';
 import TextDivider from '@/components/common/TextDivider';
-import wechatLogo from '@/../public/icons/微信logo.svg';
-import littleRedBookLogo from '@/../public/icons/小红书logo.svg';
-import linkedinLogo from '@/../public/icons/linkedin.svg';
 
 const ContactUsSection: React.FC = () => (
   <Box sx={{ py: 6 }}>

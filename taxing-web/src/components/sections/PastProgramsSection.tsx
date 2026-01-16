@@ -1,13 +1,7 @@
 import React from 'react';
 import { Box, Typography, Card, CardContent, CardActions, Button } from '@mui/material';
 import TextDivider from '@/components/common/TextDivider';
-import { PastProgramCardData } from '@/types/home';
-
-const pastProgramCards: PastProgramCardData[] = [
-  { imageSrc: '/images/taxing-hero-image.png', title: 'past program 1', text: 'past program 1 text' },
-  { imageSrc: '/images/taxing-hero-image.png', title: 'past program 2', text: 'past program 2 text' },
-  { imageSrc: '/images/taxing-hero-image.png', title: 'past program 3', text: 'past program 3 text' },
-];
+import { pastProgramCards, pastProgramsIntro } from '@/data/pastPrograms';
 
 const PastProgramsSection = () => (
   <>
@@ -18,7 +12,7 @@ const PastProgramsSection = () => (
       gutterBottom
       sx={{ padding: 4, px: 6 }}
     >
-      「她行」的Mentorship活动在聚焦于理工科女性的职业成长的同时, 也搭建了一个个温暖的女性社群
+      {pastProgramsIntro}
     </Typography>
     <Box sx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', gap: 3 }}>
       {pastProgramCards.map((card) => (
@@ -47,10 +41,17 @@ const PastProgramsSection = () => (
             <Typography gutterBottom variant="h5" component="div">
               {card.title}
             </Typography>
-            <Typography variant="body2">{card.text}</Typography>
           </CardContent>
           <CardActions sx={{ p: 4, mt: 4 }}>
-            <Button size="small" variant="contained" color="primary">
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              component="a"
+              href={card.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Learn More
             </Button>
           </CardActions>
