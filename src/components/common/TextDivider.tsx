@@ -1,7 +1,7 @@
 'use client';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-import line from '@/../public/images/Line.png';
+const line = '/images/Line.png';
 
 interface TextDividerProps {
   text: string;

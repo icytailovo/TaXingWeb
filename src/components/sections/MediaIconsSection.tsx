@@ -5,11 +5,11 @@ import TextDivider from '@/components/common/TextDivider';
 import { MediaIcon } from '@/types/home';
 
 // Media icons data
-import wechatLogo from '@/../public/icons/微信logo.svg';
-import littleRedBookLogo from '@/../public/icons/小红书logo.svg';
-import linkedinLogo from '@/../public/icons/linkedin.svg';
-import xiaoYuZhouLogo from '@/../public/icons/小宇宙.svg';
-import spotifyLogo from '@/../public/icons/spotify.svg';
+const wechatLogo = '/icons/微信logo.svg';
+const littleRedBookLogo = '/icons/小红书logo.svg';
+const linkedinLogo = '/icons/linkedin.svg';
+const xiaoYuZhouLogo = '/icons/小宇宙.svg';
+const spotifyLogo = '/icons/spotify.svg';
 
 const mediaIcons: MediaIcon[] = [
   { iconSrc: wechatLogo, text: '她行Mentorship', redirectUrl: 'https://mp.weixin.qq.com/s/j6mqJA1TKbIYU8grMWL4fQ' },
@@ -31,7 +31,7 @@ const MediaIconsSection = () => (
             href={mediaIcon.redirectUrl}
             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
           >
-            <Image src={mediaIcon.iconSrc} alt="Logo" />
+            <Image src={mediaIcon.iconSrc} alt="Logo" width={32} height={32} style={{ objectFit: 'contain' }} />
           </SvgIcon>
           <Typography variant="body1">{mediaIcon.text}</Typography>
         </Box>

@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
-import logoSrc from '@/../public/icons/她行logo-圆角方形.png';
+const logoSrc = '/icons/她行logo-圆角方形.png';
 import Link from 'next/link';
 import { pagesItems } from '@/data/navigation';
 import { donationDescription, donationLink } from '@/data/donation';

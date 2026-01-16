@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
-import map from '@/../public/images/map.jpg';
+const map = '/images/map.jpg';
 
 const ParticipantsSection = () => (
   <>
